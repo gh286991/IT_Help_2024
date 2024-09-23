@@ -6,12 +6,12 @@
  */
 
 import React from 'react';
-import HelloWorld from './components/HelloWorld';
+import Login from './components/Login';
 
 const App = () => {
-  return (
-      <HelloWorld />
-  );
+    return (
+        <Login />
+    );
 };
 
 export default App;
