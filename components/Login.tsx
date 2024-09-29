@@ -1,54 +1,40 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
+import { NativeBaseProvider, Box, Input, Button, Text } from 'native-base';
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        // 在這裡處理登入邏輯
         console.log('登入中...', { username, password });
+        // 假設登入成功
+        navigation.navigate('Homepage'); // 導航到首頁
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>登入</Text>
-            <TextInput
-                style={styles.input}
+        <Box flex={1} justifyContent="center" padding={4}>
+            <Text fontSize="2xl" textAlign="center" marginBottom={4}>登入</Text>
+            <Input
                 placeholder="用戶名"
                 value={username}
                 onChangeText={setUsername}
+                marginBottom={3}
             />
-            <TextInput
-                style={styles.input}
+            <Input
                 placeholder="密碼"
-                secureTextEntry
+                type="password"
                 value={password}
                 onChangeText={setPassword}
+                marginBottom={3}
             />
-            <Button title="登入" onPress={handleLogin} />
-        </View>
+            <Button onPress={handleLogin}>
+                登入
+            </Button>
+            <Button onPress={() => navigation.navigate('Register')} marginTop={3}>
+                註冊
+            </Button>
+        </Box>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 16,
-    },
-    title: {
-        fontSize: 24,
-        marginBottom: 20,
-        textAlign: 'center',
-    },
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginBottom: 12,
-        paddingHorizontal: 8,
-    },
-});
 
 export default Login;
