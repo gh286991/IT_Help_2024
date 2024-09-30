@@ -7,12 +7,13 @@ const Register = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [account, setAccount] = useState('');
     const [error, setError] = useState('');
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         setError('');
 
-        if (!username || !email || !password || !confirmPassword) {
+        if (!username || !email || !password || !confirmPassword || !account) {
             setError('所有欄位都是必填的');
             return;
         }
@@ -22,7 +23,30 @@ const Register = ({ navigation }) => {
             return;
         }
 
-        Alert.alert('註冊成功', '您已成功註冊！', [{ text: '確定', onPress: () => navigation.navigate('Login') }]);
+        try {
+            const response = await fetch('http://localhost:3000/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username,
+                    email,
+                    password,
+                    account,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                Alert.alert('註冊成功', '您已成功註冊！', [{ text: '確定', onPress: () => navigation.navigate('Login') }]);
+            } else {
+                setError(data.message || '註冊失敗，請稍後再試。');
+            }
+        } catch (error) {
+            setError('註冊時發生錯誤，請檢查您的網路連接。');
+        }
     };
 
     return (
@@ -53,6 +77,12 @@ const Register = ({ navigation }) => {
                     type="password"
                     value={confirmPassword}
                     onChangeText={setConfirmPassword}
+                    marginBottom={3}
+                />
+                <Input
+                    placeholder="帳號"
+                    value={account}
+                    onChangeText={setAccount}
                     marginBottom={3}
                 />
                 <Button onPress={handleRegister}>
