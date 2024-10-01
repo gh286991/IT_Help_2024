@@ -1,0 +1,16 @@
+current directory: /Users/tomj/Documents/IT 鐵人/2024/project/MyNewProject/vendor/bundle/ruby/2.6.0/gems/nkf-0.2.0/ext/nkf
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20240913-15433-b7gw8o.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tomj/Documents/IT 鐵人/2024/project/MyNewProject/vendor/bundle/ruby/2.6.0/gems/nkf-0.2.0/ext/nkf
+make "DESTDIR=" clean
+
+current directory: /Users/tomj/Documents/IT 鐵人/2024/project/MyNewProject/vendor/bundle/ruby/2.6.0/gems/nkf-0.2.0/ext/nkf
+make "DESTDIR="
+compiling nkf.c
+linking shared-object nkf.bundle
+ld: warning: directory not found for option '-L/AppleInternal/Library/BuildRoots/9e200cfa-7d96-11ed-886f-a23c4f261b56/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.2.Internal.sdk/usr/local/lib'
+
+current directory: /Users/tomj/Documents/IT 鐵人/2024/project/MyNewProject/vendor/bundle/ruby/2.6.0/gems/nkf-0.2.0/ext/nkf
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 nkf.bundle ./.gem.20240913-15433-w6vbx1
