@@ -2,12 +2,13 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
+import 'react-native-devsettings';
 import { Provider } from 'react-redux';
-import store from './store/store';
-import Login from './components/Login';
-import Register from './components/Register';
-import Homepage from './components/Homepage';
-import CreateReport from './components/CreateReport';
+import store from './src/store/store';
+import Login from './src/components/Login';
+import Register from './src/components/Register';
+import Homepage from './src/components/Homepage';
+import CreateReport from './src/components/CreateReport';
 
 const Stack = createNativeStackNavigator();
 
